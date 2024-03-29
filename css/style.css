@@ -126,7 +126,7 @@ body {
     font-family: 'Pretendard-SemiBold';
 }
 
-a.viewmore {
+.section_box .textbox a.viewmore {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,19 +137,7 @@ a.viewmore {
     border-radius: 10px;
     font-family: 'Pretendard-Regular';
     font-size: 26px;
-}
-
-.section_box #section1 .centerbox .textbox a.viewmore {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 182px;
-    height: 54px;
-    background: #41220E;
-    color: #fff;
-    border-radius: 10px;
-    font-family: 'Pretendard-Regular';
-    font-size: 26px;
+    margin-top: 1.8vh;
 }
 
 .section_box #section1 .centerbox .img_box {
@@ -302,20 +290,36 @@ a.viewmore {
     width: 100%;
     height: 100vh;
     display: flex;
+    overflow: hidden;
 }
 
 .section_box #section2 figure {
-    width: 50%;
+    width: 100%;
     height: 100%;
+}
+.section_box #section2 figure:hover img {
+    width: 105%;
+    height: 105%;
+}
+.section_box #section2 figure.active {
+    animation: sec2fig_ani 3s forwards;
+}
+@keyframes sec2fig_ani {
+    0% {width: 100%;}
+    100% {width: 50%;}
 }
 
 .section_box #section2 figure img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: 1s;
 }
 
 .section_box #section2 .textbox {
+    position: absolute;
+    top: 0;
+    left: 100%;
     width: 50%;
     height: 100%;
     background: #41220E;
@@ -327,6 +331,15 @@ a.viewmore {
     justify-content: space-around;
     gap: 63px;
     font-family: 'Pretendard-Regular';
+    word-break: keep-all;
+}
+.section_box #section2 .textbox.active {
+    animation: sec2ani 3s forwards;
+
+}
+@keyframes sec2ani {
+    0% {left: 100%;}
+    100% {left: 50%;}
 }
 
 .section_box #section2 .textbox p {
@@ -366,12 +379,12 @@ a.viewmore {
     }
 }
 
-.section_box #section2 .textbox h2 {
+.section_box #section2 .textbox h3 {
     font-size: 34px;
     font-weight: normal;
 }
 
-.section_box #section2 .textbox h2 strong {
+.section_box #section2 .textbox h3 strong {
     font-size: 42px;
 }
 
@@ -388,6 +401,115 @@ a.viewmore {
     font-size: 26px;
 }
 
+.section_box #section3 {
+    background: url(../images/section3_bg.png) center top;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    word-break: keep-all;
+}
+.section_box #section3 figure {
+    width: 50%;
+    height: 80vh;
+}
+.section_box #section3 figure:hover img {
+    transform: scale(1.1);
+}
+.section_box #section3 figure.active {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    animation: sec3ani_f 3s forwards;
+    animation-delay: 1s;
+    opacity: 0;
+}
+@keyframes sec3ani_f {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.section_box #section3 figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 1s cubic-bezier(.03,.7,.83,.67);
+}
+.section_box #section3 .textbox {
+    width: 100%;
+    height: 60vh;
+    background: #100600;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    padding: 54px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+}
+.section_box #section3 .textbox.active {
+    animation: sec3ani_t 3s forwards;
+    animation-delay: 1s;
+}
+@keyframes sec3ani_t {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 50%;
+    }
+}
+.section_box #section3 .textbox p {
+    font-size: 34px;
+}
+.section_box #section3 .textbox span.bar {
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    animation: bar 5s infinite forwards;
+    position: relative;
+    left: 0;
+}
+@keyframes bar {
+    0% {
+        width: 0%;
+    }
+    25% {
+        background: #C6FFDD;
+    }
+    50% {
+        background: #FBD786;
+    }
+    100% {
+        width: 100%;
+        background: #f7797d;
+    }
+}
+.section_box #section3 .textbox h3 {
+    font-size: 48px;
+}
+.section_box #section3 .textbox a.viewmore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 182px;
+    height: 54px;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 10px;
+    font-family: 'Pretendard-Regular';
+    font-size: 26px;
+    margin-top: 3.28vw;
+}
 
 /* pc */
 
@@ -431,6 +553,9 @@ a.viewmore {
     header nav .gnb {
         display: none;
     }
+    header .lnb_bg {
+        display: none;
+    }
 
     header .ham {
         display: block;
@@ -448,6 +573,12 @@ a.viewmore {
 
     #visual .text_box p.on {
         font-size: 4.6vw;
+    }
+
+    .section_box .textbox a.viewmore {
+        width: 19.1vw;
+        height: 5.67vw;
+        font-size: 2.7vw;
     }
 
     .section_box #section1 {
@@ -476,7 +607,8 @@ a.viewmore {
         font-size: 6vw;
     }
 
-    .section_box #section1 .centerbox .textbox a.viewmore {
+    
+    .section_box #section2 .textbox h3 strong {
         font-size: 18px;
         width: 8em;
         height: 2.32em;
@@ -509,7 +641,52 @@ a.viewmore {
         height: 100%;
         object-fit: cover;
     }
-
+    .section_box #section2 {
+    }
+    .section_box #section2 figure {
+    }
+    .section_box #section2 .textbox {
+        gap: 3.28vw;
+        padding: 20px;
+        justify-content: center;
+    }
+    .section_box #section2 .textbox p {
+        font-size: 3.8vw;
+    }
+    .section_box #section2 .textbox .deco {
+        gap: 1.9vw;
+    }
+    .section_box #section2 .textbox .deco span {
+        width: 1vw;
+        height: 1vw;
+    }
+    .section_box #section2 .textbox h3 {
+        font-size: 3.5vw;
+    }
+    .section_box #section2 .textbox h3 strong {
+        font-size: 4.41vw;
+    }    
+    .section_box #section2 .textbox a.viewmore {
+        width: 19.1vw;
+        height: 5.67vw;
+        font-size: 2.7vw;
+    }
+    .section_box #section3 .textbox {
+        padding: 20px;
+    }
+    .section_box #section3 .textbox p {
+        font-size: 3.8vw;
+    }.section_box #section3 .textbox h3 {
+        font-size: 3.5vw;
+    }
+    .section_box #section3 .textbox h3 strong {
+        font-size: 4.41vw;
+    }    
+    .section_box #section3 .textbox a.viewmore {
+        width: 19.1vw;
+        height: 5.67vw;
+        font-size: 2.7vw;
+    }
 
 
 }
@@ -568,7 +745,7 @@ a.viewmore {
         font-size: 29px;
     }
 
-    .section_box #section1 .centerbox .textbox a.viewmore {
+    .section_box .textbox a.viewmore {
         font-size: 15px;
         width: 8em;
         height: 2.32em;
@@ -592,9 +769,106 @@ a.viewmore {
     }
 
     .section_box #section2 {
-        width: 100%;
-        height: 100vh;
-        display: flex;
         flex-direction: column;
+    }
+    .section_box #section2 figure {
+        width: 100%;
+        height: 100%;
+    }
+    .section_box #section2 figure.active {
+        animation: sec2fig_ani_mo 3s forwards;
+    }
+    @keyframes sec2fig_ani_mo {
+        0% {
+            height: 100%;
+        }
+        100% {height: 50%;}
+    }
+    .section_box #section2 .textbox {
+        width: 100%;
+        height: 50%;
+        gap: 3.28vw;
+        padding: 20px;
+        justify-content: center;
+        top: 100%;
+        left: 0;
+    }
+    .section_box #section2 .textbox.active {
+        animation: sec2ani_mo 3s forwards;
+    
+    }
+    @keyframes sec2ani_mo {
+        0% {top: 100%;}
+        100% {top: 50%;}
+    }
+    .section_box #section2 .textbox p {
+        font-size: 18px;
+    }
+    .section_box #section2 .textbox .deco {
+        gap: 1.9vw;
+    }
+    .section_box #section2 .textbox .deco span {
+        width: 1vw;
+        height: 1vw;
+    }
+    .section_box #section2 .textbox h3 {
+        font-size: 24px;
+    }
+    .section_box #section2 .textbox h3 strong {
+        font-size: 29px;
+    }    
+    .section_box #section2 .textbox a.viewmore {
+        font-size: 15px;
+        width: 8em;
+        height: 2.32em;
+    }
+    .section_box #section3 {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .section_box #section3 figure {
+        width: 80%;
+    }
+    .section_box #section3 figure.active {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .section_box #section3 .textbox {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 40vh;
+        background: rgba(16, 6, 0,.8);
+        width: 100%;
+    }
+    .section_box #section3 .textbox.active {
+        animation: sec3ani_t_mo 3s forwards;
+        animation-delay: 1s;
+    }
+    @keyframes sec3ani_t_mo {
+        0% {
+            width: 90%;
+            right: 0;
+        }
+        100% {
+            width: 50%;
+            right: 20px;
+        }
+    }
+    .section_box #section3 .textbox p {
+        font-size: 18px;
+    } 
+    .section_box #section3 .textbox h3 {
+        font-size: 24px;
+    }
+    .section_box #section3 .textbox h3 strong {
+        font-size: 29px;
+    }    
+    .section_box #section3 .textbox a.viewmore {
+        font-size: 15px;
+        width: 8em;
+        height: 2.32em;
     }
 }

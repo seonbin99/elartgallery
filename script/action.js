@@ -1,55 +1,59 @@
 // lnb 높이 만들기
 
-$(document).ready(function () {
+// $(document).ready(function () {
 
-    $(window).resize(function () {
-        if ($(window).width() >= 953) {
-            let gnbTop = $('header nav .gnb li').offset().top;
-            console.log(gnbTop)
-            $('header nav .lnb').css({ top: 'calc(100%  + ' + gnbTop + 'px)' })
+//     $(window).resize(function () {
+//         if ($(window).width() >= 953) {
+//             let gnbTop = $('header nav .gnb li').offset().top;
+//             console.log(gnbTop)
+//             $('header nav .lnb').css({ top: 'calc(100%  + ' + gnbTop + 'px)' })
 
-            let maxHeight = 0;
+// let maxHeight = 0;
 
-            $('header nav .lnb').each(function () {
-                let lnbH = $(this).outerHeight();
-                console.log(lnbH);
-                if (lnbH > maxHeight) {
-                    maxHeight = lnbH;
-                }
+// $('header nav .lnb').each(function () {
+//     let lnbH = $(this).outerHeight();
+//     console.log(lnbH);
+//     if (lnbH > maxHeight) {
+//         maxHeight = lnbH;
+//     }
 
-                $('header .lnb_bg').css({ height: maxHeight })
-            });
-        }
-        // else if ($(window).width() < 953) {
-        //     let imgboxH = $('.section_box #section1 .centerbox .img_box').height();
-        //     console.log(imgboxH);
-        //     $('.section_box #section1 .centerbox .img_box figure.circle_mask').css({
-        //         maxWidth: imgboxH
-        //     })
-        // }
-    });
+//     $('header .lnb_bg').css({ height: maxHeight })
+// });
+
+// $('header nav .gnb').mouseover(function(){
+//     let lnbH = $(this).find('.lnb').outerHeight();
+//     console.log(lnbH)
+// })
+
+//         }
+// else if ($(window).width() < 953) {
+//     let imgboxH = $('.section_box #section1 .centerbox .img_box').height();
+//     console.log(imgboxH);
+//     $('.section_box #section1 .centerbox .img_box figure.circle_mask').css({
+//         maxWidth: imgboxH
+//     })
+// }
+// });
 
 
 
-});
+// });
 
 
-$('header nav .gnb').mouseover(function () {
-    $('header .lnb_bg').stop().slideDown();
-    $('header .lnb').stop().slideDown();
-});
-$('header nav .gnb').mouseout(function () {
-    $('header .lnb_bg').stop().slideUp();
-    $('header .lnb').stop().slideUp();
-});
-$('header .lnb_bg').mouseover(function () {
-    $(this).stop().slideDown();
-    $('header .lnb').stop().slideDown();
-})
-$('header .lnb_bg').mouseout(function () {
-    $(this).stop().slideUp();
-    $('header .lnb').stop().slideUp();
-})
+// $('header nav .gnb').mouseover(function () {
+//     $('header .lnb_bg').stop().slideDown();
+// });
+// $('header nav .gnb').mouseout(function () {
+//     $('header .lnb_bg').stop().slideUp();
+// });
+// $('header .lnb_bg').mouseover(function () {
+//     $(this).stop().slideDown();
+//     $('header .lnb').stop().slideDown();
+// })
+// $('header .lnb_bg').mouseout(function () {
+//     $(this).stop().slideUp();
+//     $('header .lnb').stop().slideUp();
+// })
 
 // ham버튼
 
@@ -78,18 +82,29 @@ function fadeani() {
 
 // section1 text_ani1
 
-let sec1T, visualT
+let sec1T, visualT, sec2T,sec3T
 
 $(window).scroll(function () {
     scrT = $(window).scrollTop();
     console.log(scrT)
 
     sec1T = $('#section1').offset().top;
+    sec2T = $('#section2').offset().top;
+    sec3T = $('#section3').offset().top;
 
     if (scrT >= sec1T * 0.5) {
         $('.section_box #section1 .centerbox .textbox').css({ animation: 'text_ani1 2s forwards' })
     } else {
         $('.section_box #section1 .centerbox .textbox').css({ animation: '' })
+    }
+    if (scrT >= sec2T-500) {
+        $('.section_box #section2 figure').addClass('active');
+        $('.section_box #section2 .textbox').addClass('active');
+    } else {
+    }
+    if (scrT>=sec3T-500) {
+        $('.section_box #section3 .textbox').addClass('active');
+        $('.section_box #section3 figure').addClass('active');
     }
 
 });
@@ -109,3 +124,4 @@ setInterval(function () {
 
     x = x + 1
 }, 500)
+
