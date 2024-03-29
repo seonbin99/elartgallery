@@ -829,17 +829,19 @@ body {
     }
     .section_box #section3 figure {
         width: 80%;
+        height: 50vh;
     }
     .section_box #section3 figure.active {
         left: 50%;
-        top: 50%;
-        transform: translate(-50%,-50%);
+        top: 10%;
+        transform: translateX(-50%);
     }
     .section_box #section3 .textbox {
         position: absolute;
         top: 50%;
+        width: 90%;
+        height: auto;
         transform: translateY(-50%);
-        height: 40vh;
         background: rgba(16, 6, 0,.8);
         width: 100%;
     }
@@ -849,12 +851,11 @@ body {
     }
     @keyframes sec3ani_t_mo {
         0% {
-            width: 90%;
-            right: 0;
+            width: 100%;
         }
         100% {
-            width: 50%;
-            right: 20px;
+            width: 90%;
+            top: 70vh;
         }
     }
     .section_box #section3 .textbox p {
