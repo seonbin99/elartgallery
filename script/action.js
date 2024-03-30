@@ -1,4 +1,25 @@
+$(document).ready(function(){
+    $('header').load('include/header.html',function(){
+    // ham버튼
+
+    $('header nav .ham').click(function () {
+        $(this).toggleClass('active');
+        $('header .navbox').stop().slideToggle();
+    })
+    $('header .navbox .nav_menu > li').click(function () {
+        $(this).find('.lnb').stop().slideToggle();
+    })
+
+    });
+
+
+})
+
+
+
 // lnb 높이 만들기
+
+
 
 // $(document).ready(function () {
 
@@ -55,15 +76,6 @@
 //     $('header .lnb').stop().slideUp();
 // })
 
-// ham버튼
-
-$('header nav .ham').click(function () {
-    $(this).toggleClass('active');
-    $('header .navbox').stop().slideToggle();
-})
-$('header .navbox .nav_menu > li').click(function () {
-    $(this).find('.lnb').stop().slideToggle();
-})
 
 // section1 animation
 
