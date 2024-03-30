@@ -709,7 +709,8 @@ body {
 
     #visual .text_box {
         width: 100vw;
-        height: 50vw;
+        height: auto;
+        padding: 20px 0 20px 20px;
         left: 0;
     }
 
